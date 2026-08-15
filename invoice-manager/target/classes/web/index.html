@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gerenciamento de Notas Fiscais</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <main>
+    <h1>Gerenciamento de Notas Fiscais</h1>
+
+    <section>
+      <h2>Nova Nota Fiscal</h2>
+      <form id="invoice-form">
+        <input name="invoiceNumber" placeholder="Número da nota" required>
+        <input name="issuer" placeholder="Emissor" required>
+        <input name="totalAmount" type="number" step="0.01" placeholder="Valor total" required>
+        <input name="description" placeholder="Descrição">
+        <button type="submit">Criar nota</button>
+      </form>
+    </section>
+
+    <section>
+      <h2>Confirmar Nota</h2>
+      <form id="confirm-form">
+        <input name="invoiceId" type="number" placeholder="ID da nota" required>
+        <select name="system" required>
+          <option value="ERP">ERP</option>
+          <option value="Financeiro">Financeiro</option>
+          <option value="Fiscal">Fiscal</option>
+        </select>
+        <input name="notes" placeholder="Observação">
+        <button type="submit">Confirmar</button>
+      </form>
+    </section>
+
+    <section>
+      <h2>Não Concordância</h2>
+      <form id="disagree-form">
+        <input name="invoiceId" type="number" placeholder="ID da nota" required>
+        <select name="system" required>
+          <option value="ERP">ERP</option>
+          <option value="Financeiro">Financeiro</option>
+          <option value="Fiscal">Fiscal</option>
+        </select>
+        <input name="reason" placeholder="Motivo" required>
+        <input name="details" placeholder="Detalhes">
+        <button type="submit">Registrar</button>
+      </form>
+    </section>
+
+    <section>
+      <h2>Notas</h2>
+      <button id="refresh">Atualizar lista</button>
+      <pre id="output"></pre>
+    </section>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>
